@@ -2,6 +2,8 @@
 
 const express = require('express');
 const logger = require('./logger');
+require('dotenv').config();
+// const sequelize = require('./db/models/index');
 
 const argv = require('./argv');
 const port = require('./port');

@@ -1,0 +1,53 @@
+module.exports = {
+  up: (queryInterface, Sequelize) =>
+    queryInterface.createTable('submissions', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      mediaContent: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      applyDate: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      jobPostId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'jobPosts',
+        },
+      },
+      statusId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'statuses',
+        },
+      },
+      accountId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'accounts',
+        },
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+    }),
+  down: (queryInterface, Sequelize) =>
+    queryInterface.dropTable('submissions', {
+      force: true,
+      cascade: true,
+    }),
+};
