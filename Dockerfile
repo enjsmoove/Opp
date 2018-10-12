@@ -16,7 +16,8 @@ RUN npm install
 COPY . .
 
 RUN npm run build:dll
-
-EXPOSE 8080
+# RUN npm audit fix
+RUN npm run reset
+RUN npm run seed
 
 CMD [ "npm", "start" ]
