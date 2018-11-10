@@ -17,7 +17,7 @@ COPY . .
 
 RUN npm run build:dll
 # RUN npm audit fix
-RUN npm run reset
-RUN npm run seed
-
+# RUN npm run reset
+# RUN npm run seed
+EXPOSE 3000
 CMD [ "npm", "start" ]
