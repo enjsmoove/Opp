@@ -2,6 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+const accountRouter = require('./routers/route.account');
+const businessStreamRouter = require('./routers/route.businessStream');
+const industryRouter = require('./routers/route.industry');
+const interviewRouter = require('./routers/route.interview');
+const jobpostRouter = require('./routers/route.jobpost');
+// const loginRouter = require('./routers/route.login')
+const membershipRouter = require('./routers/route.membership');
 
 function createWebpackMiddleware(compiler, publicPath) {
   return webpackDevMiddleware(compiler, {
@@ -20,6 +27,14 @@ module.exports = function addDevMiddlewares(app, webpackConfig) {
   );
 
   app.use(middleware);
+  app.use(
+    accountRouter,
+    businessStreamRouter,
+    industryRouter,
+    interviewRouter,
+    jobpostRouter,
+    membershipRouter,
+  );
   app.use(webpackHotMiddleware(compiler));
 
   // Since webpackDevMiddleware uses memory-fs internally to store build
