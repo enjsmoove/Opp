@@ -15,6 +15,7 @@ import { compose } from 'redux';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import { makeSelectIndustries } from 'containers/App/selectors';
+import IndustryView from 'components/IndustryView/index';
 import makeSelectHome from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -27,12 +28,12 @@ export class Home extends Component {
     this.props.onInit();
   }
   render() {
-    const { industries } = this.props;
-    // const industryListProps = {
-    //   loading,
-    //   error,
-    //   industries,
-    // };
+    const { loading, error, industries } = this.props;
+    const industryListProps = {
+      loading,
+      error,
+      industries,
+    };
     console.log(`props are${industries}`);
 
     return (
@@ -41,6 +42,7 @@ export class Home extends Component {
           <title>Home</title>
           <meta name="description" content="Description of Home" />
         </Helmet>
+        <IndustryView {...industryListProps} />
         <FormattedMessage {...messages.header} />
       </div>
     );
