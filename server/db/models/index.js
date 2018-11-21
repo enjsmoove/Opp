@@ -6,7 +6,7 @@ const env = 'development' || process.env.DEV_POSTGRES;
 const config = require('../config/config.js');
 const db = {};
 // var seed = require('../seed')
-const sequelize = new Sequelize(process.env.DEV_POSTGRES);
+const sequelize = new Sequelize(process.env.LOCAL_POSTGRES);
 
 fs.readdirSync(__dirname)
   .filter(
