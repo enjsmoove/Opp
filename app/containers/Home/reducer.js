@@ -25,7 +25,7 @@ function homeReducer(state = initialState, action) {
         .setIn(['industries'], action.industries)
         .set('loading', false);
     case LOAD_INDUSTRIES_ERROR:
-      return state;
+      return state.set('error', action.error).set('loading', false);
     default:
       return state;
   }

@@ -14,7 +14,11 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import { makeSelectIndustries } from 'containers/App/selectors';
+import {
+  makeSelectIndustries,
+  makeSelectLoading,
+  makeSelectError,
+} from 'containers/App/selectors';
 import IndustryView from 'components/IndustryView/index';
 import makeSelectHome from './selectors';
 import reducer from './reducer';
@@ -34,16 +38,14 @@ export class Home extends Component {
       error,
       industries,
     };
-    console.log(`props are${industries}`);
-
     return (
       <div>
         <Helmet>
           <title>Home</title>
           <meta name="description" content="Description of Home" />
         </Helmet>
-        <IndustryView {...industryListProps} />
         <FormattedMessage {...messages.header} />
+        <IndustryView {...industryListProps} />
       </div>
     );
   }
@@ -59,6 +61,8 @@ Home.propTypes = {
 const mapStateToProps = createStructuredSelector({
   home: makeSelectHome(),
   industries: makeSelectIndustries(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
 });
 
 function mapDispatchToProps(dispatch) {
