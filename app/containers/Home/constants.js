@@ -1,0 +1,9 @@
+/*
+ *
+ * Home constants
+ *
+ */
+
+export const LOAD_INDUSTRIES = 'LOAD_INDUSTRIES';
+export const LOAD_INDUSTRIES_SUCCESS = 'LOAD_INDUSTRIES_SUCCESS';
+export const LOAD_INDUSTRIES_ERROR = 'LOAD_INDUSTRIES_ERROR';

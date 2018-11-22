@@ -9,8 +9,8 @@ services:
       POSTGRES_USER: freshly
       POSTGRES_PASSWORD: freshly
       POSTGRES_DB: freshly
-    networks:
-      - frontend
+    # networks:
+    #   - frontend
   # web:
   #   build: .
   #   ports:
@@ -21,6 +21,6 @@ services:
   #     - postgres 
   #   networks:
   #     - frontend
-networks:
-  frontend:
+# networks:
+#   frontend:
 
