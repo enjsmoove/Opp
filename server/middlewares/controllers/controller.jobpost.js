@@ -7,7 +7,6 @@ exports.getAccountJobs = (req, res) => {
     })
     .then(acc => {
       acc.getJobPosts().then(data => {
-        // console.log(data)
         res.send(data);
       });
     });
@@ -19,5 +18,19 @@ exports.getJob = (req, res) => {
     })
     .then(job => {
       res.send(job);
+    });
+};
+
+exports.getJobsByIndustry = (req, res) => {
+  console.log('sdfsdf', req.params);
+  jobPost
+    .find({
+      where: {
+        industryId: req.params.industryId,
+      },
+    })
+    .then(jobs => {
+      if (jobs) res.send([jobs]);
+      else res.send([]);
     });
 };

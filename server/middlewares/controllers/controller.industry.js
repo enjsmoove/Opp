@@ -4,6 +4,7 @@ const { industry } = require('../../db/models/index');
 // // const JobPost = require('../../db/models/jobPost').JobPost
 exports.getIndustryList = (req, res) => {
   industry.findAll().then(data => {
+    // console.log(data)
     res.send(data.map(ind => ind.industryName));
   });
 };

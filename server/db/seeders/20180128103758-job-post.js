@@ -19,7 +19,7 @@ module.exports = {
           visibility: 'Public',
           jobType: 'Gig',
           fromId: 1,
-          industryId: 1,
+          industryId: 2,
           jobLocationId: 1,
           paymentAmount: null,
           paymentType: null,

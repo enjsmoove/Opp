@@ -8,31 +8,31 @@ module.exports = {
       'industries',
       [
         {
-          id: 1,
+          id: 0,
           createdAt: new Date(),
           industryName: 'Fashion',
           updatedAt: new Date(),
         },
         {
           createdAt: new Date(),
-          id: 2,
+          id: 1,
           industryName: 'Art',
           updatedAt: new Date(),
         },
         {
-          id: 3,
+          id: 2,
           createdAt: new Date(),
           industryName: 'Music',
           updatedAt: new Date(),
         },
         {
-          id: 4,
+          id: 3,
           createdAt: new Date(),
           industryName: 'Film',
           updatedAt: new Date(),
         },
         {
-          id: 5,
+          id: 4,
           industryName: 'Social Media',
           createdAt: new Date(),
           updatedAt: new Date(),
