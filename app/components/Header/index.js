@@ -25,8 +25,8 @@ class Header extends Component {
           <HeaderLink to="/">
             <FormattedMessage {...messages.home} />
           </HeaderLink>
-          <HeaderLink to="/login">
-            <FormattedMessage {...messages.login} />
+          <HeaderLink to="/browse">
+            <FormattedMessage {...messages.browse} />
           </HeaderLink>
         </NavBar>
       </div>

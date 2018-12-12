@@ -15,9 +15,15 @@ const makeSelectLoading = () =>
 const makeSelectError = () =>
   createSelector(selectHome, routeState => routeState.get('error'));
 
+const makeSelectIndustry = () =>
+  createSelector(selectHome, routeState => routeState.get('currentIndustry'));
+const makeSelectBrowseMode = () =>
+  createSelector(selectHome, routeState => routeState.get('browseMode'));
 export {
   makeSelectLocation,
   makeSelectIndustries,
   makeSelectLoading,
   makeSelectError,
+  makeSelectIndustry,
+  makeSelectBrowseMode,
 };

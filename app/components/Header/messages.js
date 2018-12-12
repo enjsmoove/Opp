@@ -11,9 +11,9 @@ export default defineMessages({
     id: 'app.components.Header.header',
     defaultMessage: 'This is the Header component !',
   },
-  login: {
+  browse: {
     id: 'boilerplate.components.Header.login',
-    defaultMessage: 'Login',
+    defaultMessage: 'Browse',
   },
   home: {
     id: 'boilerplate.components.Header.home',

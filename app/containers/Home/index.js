@@ -18,8 +18,11 @@ import {
   makeSelectIndustries,
   makeSelectLoading,
   makeSelectError,
+  makeSelectIndustry,
+  makeSelectBrowseMode,
 } from 'containers/App/selectors';
-import IndustryView from 'components/IndustryView/index';
+// import IndustryView from 'components/IndustryView/index';
+import OpportunityBrowser from 'containers/OpportunityBrowser/Loadable';
 import makeSelectHome from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -38,6 +41,7 @@ export class Home extends Component {
       error,
       industries,
     };
+
     return (
       <div>
         <Helmet>
@@ -45,7 +49,7 @@ export class Home extends Component {
           <meta name="description" content="Description of Home" />
         </Helmet>
         <FormattedMessage {...messages.header} />
-        <IndustryView {...industryListProps} />
+        <OpportunityBrowser {...industryListProps} />
       </div>
     );
   }
@@ -55,13 +59,17 @@ Home.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   onInit: PropTypes.func,
+  industry: PropTypes.string,
+  browseMode: PropTypes.number,
   industries: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
 };
 
 const mapStateToProps = createStructuredSelector({
   home: makeSelectHome(),
   industries: makeSelectIndustries(),
+  industry: makeSelectIndustry(),
   loading: makeSelectLoading(),
+  browseMode: makeSelectBrowseMode(),
   error: makeSelectError(),
 });
 

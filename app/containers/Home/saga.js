@@ -7,7 +7,7 @@ import {
 import { LOAD_INDUSTRIES } from './constants';
 
 // Individual exports for testing
-export function* getIndustries() {
+function* getIndustries() {
   // See example in containers/HomePage/saga.js
   const requestURL = `http://localhost:3000/industry`;
 
@@ -30,3 +30,12 @@ export default function* industryData() {
   // It will be cancelled automatically on component unmount
   yield takeLatest(LOAD_INDUSTRIES, getIndustries);
 }
+
+// export default function* rootSage() {
+//   yield [
+//     // fork(industryData),
+//     fork(getIndustries),
+//     // fork(jobPostData),
+//     // fork(getJobPosts)
+//   ];
+// }

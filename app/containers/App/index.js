@@ -17,6 +17,7 @@ import styled from 'styled-components';
 
 import Home from 'containers/Home/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import OpportunityBrowser from 'containers/OpportunityBrowser/Loadable';
 import Header from 'components/Header';
 
 const AppWrapper = styled.div`
@@ -35,7 +36,7 @@ export default function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          {/* <Route exact path="/login" component={LoginPage} /> */}
+          <Route exact path="/browse" component={OpportunityBrowser} />
           <Route component={NotFoundPage} />
         </Switch>
       </AppWrapper>
