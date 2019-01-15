@@ -1,6 +1,6 @@
 /**
  *
- * JobBrowser
+ * JobViewer
  *
  */
 
@@ -14,38 +14,32 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import { makeSelectJobPosts } from 'containers/OpportunityBrowser/selectors';
-import JobView from 'components/JobView';
-import makeSelectJobBrowser from './selectors';
+import makeSelectJobViewer from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
-export class JobBrowser extends React.Component {
+export class JobViewer extends React.Component {
   render() {
-    const { jobPosts } = this.props;
     return (
       <div>
         <Helmet>
-          <title>JobBrowser</title>
-          <meta name="description" content="Description of JobBrowser" />
+          <title>JobViewer</title>
+          <meta name="description" content="Description of JobViewer" />
         </Helmet>
         <FormattedMessage {...messages.header} />
-        <JobView>{jobPosts}</JobView>
       </div>
     );
   }
 }
 
-JobBrowser.propTypes = {
+JobViewer.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  jobPosts: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 };
 
 const mapStateToProps = createStructuredSelector({
-  jobbrowser: makeSelectJobBrowser(),
-  jobPosts: makeSelectJobPosts(),
+  jobviewer: makeSelectJobViewer(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -59,11 +53,11 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'jobBrowser', reducer });
-const withSaga = injectSaga({ key: 'jobBrowser', saga });
+const withReducer = injectReducer({ key: 'jobViewer', reducer });
+const withSaga = injectSaga({ key: 'jobViewer', saga });
 
 export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(JobBrowser);
+)(JobViewer);

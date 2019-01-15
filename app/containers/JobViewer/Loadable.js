@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for IndustryView
+ * Asynchronously loads the component for JobViewer
  *
  */
 

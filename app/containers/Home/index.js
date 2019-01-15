@@ -44,12 +44,15 @@ export class Home extends Component {
 
     return (
       <div>
-        <Helmet>
-          <title>Home</title>
-          <meta name="description" content="Description of Home" />
-        </Helmet>
-        <FormattedMessage {...messages.header} />
-        <OpportunityBrowser {...industryListProps} />
+        <center>
+          <Helmet>
+            <title>Home</title>
+            <meta name="description" content="Description of Home" />
+            <br />
+          </Helmet>
+          <FormattedMessage {...messages.header} />
+          <OpportunityBrowser {...industryListProps} />
+        </center>
       </div>
     );
   }

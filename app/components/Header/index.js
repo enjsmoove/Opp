@@ -16,13 +16,15 @@ import messages from './messages';
 /* eslint-disable react/prefer-stateless-function */
 class Header extends Component {
   render() {
+    // const { industries, browseMode } = this.props;
+
     return (
       <div>
         {/* <A href="https://twitter.com/mxstbr">
           <Img src={Banner} alt="react-boilerplate - Logo" />
         </A> */}
         <NavBar>
-          <HeaderLink to="/">
+          <HeaderLink onClick={() => console.log('clicked')} to="/">
             <FormattedMessage {...messages.home} />
           </HeaderLink>
           <HeaderLink to="/browse">

@@ -22,12 +22,17 @@ exports.getJob = (req, res) => {
 };
 
 exports.getJobsByIndustry = (req, res) => {
-  console.log('sdfsdf', req.params);
   jobPost
     .find({
       where: {
         industryId: req.params.industryId,
       },
+      include: [
+        {
+          model: account,
+          required: true,
+        },
+      ],
     })
     .then(jobs => {
       if (jobs) res.send([jobs]);
