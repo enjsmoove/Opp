@@ -31,39 +31,30 @@ export class OpportunityBrowser extends React.Component {
   }
   render() {
     const { industries, browseMode } = this.props;
-    if (industries) {
-      industries.map((name, index) => (
-        <button
-          onClick={() => this.pickIndustry(name, index)}
-          OnKeyDown={() => this.pickIndustry(name, index)}
-          name="fuck"
-          key={index.toString()}
-        >
-          {name}
-        </button>
-      ));
-    }
     return (
       <div>
-        <Helmet>
-          <title>IndustryBrowser</title>
-          <meta name="description" content="Description of IndustryBrowser" />
-        </Helmet>
-        <FormattedMessage {...messages.header} />
-        {browseMode === 0 ? (
-          industries.map((name, index) => (
-            <button
-              onClick={() => this.pickIndustry(name, index)}
-              OnKeyDown={() => this.pickIndustry(name, index)}
-              name="fuck"
-              key={index.toString()}
-            >
-              {name}
-            </button>
-          ))
-        ) : (
-          <JobBrowser />
-        )}
+        <center>
+          <Helmet>
+            <title>IndustryBrowser</title>
+            <meta name="description" content="Description of IndustryBrowser" />
+          </Helmet>
+          <FormattedMessage {...messages.header} />
+          <br />
+          {browseMode === 0 && industries ? (
+            industries.map((name, index) => (
+              <button
+                onClick={() => this.pickIndustry(name, index)}
+                onKeyDown={() => this.pickIndustry(name, index)}
+                name="fuck"
+                key={index.toString()}
+              >
+                {name}
+              </button>
+            ))
+          ) : (
+            <JobBrowser />
+          )}
+        </center>
       </div>
     );
   }
@@ -74,7 +65,7 @@ OpportunityBrowser.propTypes = {
   industry: PropTypes.string,
   loadJobPosts: PropTypes.func,
   browseMode: PropTypes.number,
-  jobPosts: PropTypes.object,
+  // jobPosts: PropTypes.array,
   industries: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
 };
 

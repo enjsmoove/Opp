@@ -9,6 +9,6 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.containers.IndustryBrowser.header',
-    defaultMessage: 'This is IndustryBrowser container !',
+    defaultMessage: 'SEARCH BY INDUSTRY OR NAME',
   },
 });
